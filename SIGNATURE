@@ -1,0 +1,41 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.73.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 1ef00456a62220d5adbf307df3c9b0502b72c29f Changes
+SHA1 c5355b56e9be921a03bd1a1c491a2cf170dc414f MANIFEST
+SHA1 5f29cdcbfacb9c46ac155fff9844aceeb064aef1 MANIFEST.SKIP
+SHA1 f553abf15921e4c1250992f0bc21914536caf37b Makefile.PL
+SHA1 3bc49f74c6548764a9a0603e47dbc594ce898172 README
+SHA1 87a6a12b3a4cde946a29765cd4841e6d9fb415af lib/Data/Password/Filter.pm
+SHA1 0275c77ce419756d26edaff671ce3b44bea9fa24 lib/Data/Password/Filter/Dictionary.pm
+SHA1 afca763b8f073861b216924358a1263497f74f77 t/00-load.t
+SHA1 8859aed637e446cdc6963e5f7094ce530c8716a2 t/01-new.t
+SHA1 fef724bfc413d70f4461ae4d5e7475745aa2d746 t/02-strength.t
+SHA1 b202fdc3a285eedc27c5c5c746edb4a05c0dc1c5 t/03-score.t
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/DictionaryWithNoWord.txt
+SHA1 95683f98ea4210d7b8ba8bc45d6a62a5bbe4d899 t/manifest.t
+SHA1 73982a48f6781d3bc281a3168624f4301acf59b2 t/pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBAgAGBQJUQ9uJAAoJENoXJXWo7C/pMQUIAIiJNmGLXYxZ+xe0WoV0tEFF
+RqIeW59DYDwza8VhBsZbryvqFz8jnWZmU0O/G/KbPRYZ8rJYnljQa8yikLGiTUXg
+LIHW7cpdiwdMGsIJtV7FOW7O81LOtDQsAPyPRENStgNWNy7sgmLlelB/qqaRNKTa
+CgWiisE+pr9aJfMJ88epDCi27OEcIqRhk0esTqP3QJBHU7in9X+mmRqB9Zq0DVOq
+cy2UrKgrA4Ww5R5MCRg87T3asxEWEQCCLYNoOpssl9iw2Mg+SI2kuUp4RGih1J4y
+cgJGzfpRtKR1SGgINQSMIte8eYKoWT+4j0IMdSOp1Mqhz3+am3jpn4JMGMQjJsA=
+=QX4Y
+-----END PGP SIGNATURE-----
