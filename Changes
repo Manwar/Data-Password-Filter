@@ -1,5 +1,10 @@
 Revision history for Data-Password-Filter
 
+0.10  2015-01-16T15:45:10+01:00
+      - Removed SIGNATURE file.
+      - Updated MANIFEST.SKIP file to ignore folder 'eumm/'.
+      - Updated Copyright year information.
+
 0.09  2014-10-26T18:13:20+01:00
       - Updated Changes file according to CPAN::Changes::Spec package.
       - Added unit test changes.t file.

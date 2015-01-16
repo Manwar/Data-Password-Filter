@@ -1,6 +1,6 @@
 package Data::Password::Filter;
 
-$Data::Password::Filter::VERSION = '0.09';
+$Data::Password::Filter::VERSION = '0.10';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter - Interface to the password filter.
 
 =head1 VERSION
 
-Version 0.09
+Version 0.10
 
 =cut
 
@@ -55,13 +55,13 @@ sub BUILD {
         $dictionary = dist_file('Data-Password-Filter', 'dictionary.txt');
     }
 
-    open(DICTIONARY, '<:encoding(UTF-8)', $dictionary);
-    while(my $word = <DICTIONARY>) {
+    open(my $DICTIONARY, '<:encoding(UTF-8)', $dictionary);
+    while(my $word = <$DICTIONARY>) {
         chomp($word);
         next if length($word) <= 3;
         push @{$self->{word_list}}, $word;
     }
-    close(DICTIONARY);
+    close($DICTIONARY);
 
     die("ERROR: Couldn't find word longer than 3 characters in the dictionary.\n")
         unless scalar(@{$self->{word_list}});
@@ -359,7 +359,7 @@ and Engineers" (Apress) and "Pro Perl Parsing" (Apress).
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2011 - 2014 Mohammad S Anwar.
+Copyright (C) 2011 - 2015 Mohammad S Anwar.
 
 This  program  is  free software; you can redistribute it and/or modify it under
 the  terms  of the the Artistic License (2.0). You may obtain a copy of the full
