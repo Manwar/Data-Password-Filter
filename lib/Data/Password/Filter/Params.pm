@@ -1,6 +1,6 @@
 package Data::Password::Filter::Params;
 
-$Data::Password::Filter::VERSION = '0.10';
+$Data::Password::Filter::VERSION = '0.11';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter::Params - Placeholder for parameters for Data::Password::
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
@@ -40,6 +40,10 @@ sub check_num  { die "ERROR: Invalid NUM data type [$_[0]]" unless (defined $_[0
 
 our $FilePath = sub { die "ERROR: Invalid file path [$_[0]]" unless check_file_path($_[0]); };
 sub check_file_path { return (-f $_[0]) };
+
+=head1 DESCRIPTION
+
+B<FOR INTERNAL USE ONLY>
 
 =head1 AUTHOR
 

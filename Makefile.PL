@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
@@ -15,9 +17,10 @@ WriteMakefile(
     PL_FILES           => {},
     MIN_PERL_VERSION   => 5.006,
     CONFIGURE_REQUIRES => {
-        'ExtUtils::MakeMaker' => 0,
+        'ExtUtils::MakeMaker'     => 0,
+        'File::ShareDir::Install' => 0,
     },
-    BUILD_REQUIRES => {
+    BUILD_REQUIRES   => {
         'Test::More' => 0,
     },
     PREREQ_PM     => {
@@ -25,7 +28,6 @@ WriteMakefile(
         'Moo'              => 0,
         'namespace::clean' => 0,
         'File::Share'      => 0,
-        'File::ShareDir::Install' => '0.09',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Data-Password-Filter-*' },

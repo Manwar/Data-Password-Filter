@@ -1,6 +1,6 @@
 package Data::Password::Filter;
 
-$Data::Password::Filter::VERSION = '0.10';
+$Data::Password::Filter::VERSION = '0.11';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter - Interface to the password filter.
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
@@ -76,18 +76,23 @@ parameters  are  mandatory. The format of user dictionary should be one word per
 line.  It  only  uses the word longer than 3 characters from the user dictionary,
 if supplied.
 
-    +-----------------------+----------------------------------------------------------------+
-    | Key                   | Description                                                    |
-    +-----------------------+----------------------------------------------------------------+
-    | length                | Length of the password. Default is 8.                          |
-    | min_lowercase_letter  | Minimum number of alphabets (a..z) in lowercase. Default is 1. |
-    | min_uppercase_letter  | Minimum number of alphabets (A..Z) in uppercase. Default is 1. |
-    | min_special_character | Minimum number of special characters. Default is 1.            |
-    | min_digit             | Minimum number of digits (0..9). Default is 1.                 |
-    | check_variation       | 1 or 0, depending whether checking variation. Default is 1.    |
-    | check_dictionary      | 1 or 0, depending whether checking dictionary. Default is 1.   |
-    | user_dictionary       | User supplied dictionary file location. Default use its own.   |
-    +-----------------------+----------------------------------------------------------------+
+    +-----------------------+---------------------------------------------------+
+    | Key                   | Description                                       |
+    +-----------------------+---------------------------------------------------+
+    | length                | Length of the password. Default is 8.             |
+    | min_lowercase_letter  | Minimum number of alphabets (a..z) in lowercase.  |
+    |                       | Default is 1.                                     |
+    | min_uppercase_letter  | Minimum number of alphabets (A..Z) in uppercase.  |
+    |                       | Default is 1.                                     |
+    | min_special_character | Minimum number of special characters.Default is 1.|
+    | min_digit             | Minimum number of digits (0..9). Default is 1.    |
+    | check_variation       | 1 or 0, depending whether checking variation.     |
+    |                       | Default is 1.                                     |
+    | check_dictionary      | 1 or 0, depending whether checking dictionary.    |
+    |                       | Default is 1.                                     |
+    | user_dictionary       | User supplied dictionary file location. Default   |
+    |                       | use its own.                                      |
+    +-----------------------+---------------------------------------------------+
 
 =head1 SPECIAL CHARACTERS
 
@@ -100,7 +105,7 @@ Currently considers the following characters as special:
 
 =head1 METHODS
 
-=head2 strength()
+=head2 strength($password)
 
 Returns the strength of the given password.
 
@@ -129,7 +134,7 @@ sub strength {
     return $self->_strength($password);
 }
 
-=head2 score()
+=head2 score($password)
 
 Returns the score (percentage) of the given password or the previous password for
 which the strength has been calculated.
@@ -187,6 +192,10 @@ sub as_string {
 
     return $string;
 }
+
+#
+#
+# PRIVATE METHODS
 
 sub _strength {
     my ($self, $password) = @_;
@@ -361,8 +370,8 @@ and Engineers" (Apress) and "Pro Perl Parsing" (Apress).
 
 Copyright (C) 2011 - 2015 Mohammad S Anwar.
 
-This  program  is  free software; you can redistribute it and/or modify it under
-the  terms  of the the Artistic License (2.0). You may obtain a copy of the full
+This program  is  free software; you can redistribute it and / or modify it under
+the  terms  of the the Artistic License (2.0). You may obtain a  copy of the full
 license at:
 
 L<http://www.perlfoundation.org/artistic_license_2_0>
