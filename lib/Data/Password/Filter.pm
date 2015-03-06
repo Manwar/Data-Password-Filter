@@ -1,6 +1,6 @@
 package Data::Password::Filter;
 
-$Data::Password::Filter::VERSION = '0.11';
+$Data::Password::Filter::VERSION = '0.12';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter - Interface to the password filter.
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =cut
 
