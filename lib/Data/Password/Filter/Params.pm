@@ -1,6 +1,6 @@
 package Data::Password::Filter::Params;
 
-$Data::Password::Filter::VERSION = '0.12';
+$Data::Password::Filter::VERSION = '0.13';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter::Params - Placeholder for parameters for Data::Password::
 
 =head1 VERSION
 
-Version 0.12
+Version 0.13
 
 =cut
 

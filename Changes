@@ -1,5 +1,8 @@
 Revision history for Data-Password-Filter
 
+0.13  2015-09-08T12:10:00+01:00
+      - Patched bug RT: #106940 (thanks to HKCLARK).
+
 0.12  2015-03-06T16:40:00+01:00
       - Added LICENSE file.
 

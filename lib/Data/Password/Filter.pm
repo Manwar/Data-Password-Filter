@@ -1,6 +1,6 @@
 package Data::Password::Filter;
 
-$Data::Password::Filter::VERSION = '0.12';
+$Data::Password::Filter::VERSION = '0.13';
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ Data::Password::Filter - Interface to the password filter.
 
 =head1 VERSION
 
-Version 0.12
+Version 0.13
 
 =cut
 
@@ -80,19 +80,29 @@ if supplied.
     | Key                   | Description                                       |
     +-----------------------+---------------------------------------------------+
     | length                | Length of the password. Default is 8.             |
+    |                       |                                                   |
     | min_lowercase_letter  | Minimum number of alphabets (a..z) in lowercase.  |
     |                       | Default is 1.                                     |
+    |                       |                                                   |
     | min_uppercase_letter  | Minimum number of alphabets (A..Z) in uppercase.  |
     |                       | Default is 1.                                     |
+    |                       |                                                   |
     | min_special_character | Minimum number of special characters.Default is 1.|
+    |                       |                                                   |
     | min_digit             | Minimum number of digits (0..9). Default is 1.    |
+    |                       |                                                   |
     | check_variation       | 1 or 0, depending whether checking variation.     |
     |                       | Default is 1.                                     |
+    |                       |                                                   |
     | check_dictionary      | 1 or 0, depending whether checking dictionary.    |
     |                       | Default is 1.                                     |
+    |                       |                                                   |
     | user_dictionary       | User supplied dictionary file location. Default   |
     |                       | use its own.                                      |
     +-----------------------+---------------------------------------------------+
+
+The C<check_variation> key,  when set 1, looks for password that only vary by one
+character from a dictionary word.
 
 =head1 SPECIAL CHARACTERS
 
@@ -107,7 +117,7 @@ Currently considers the following characters as special:
 
 =head2 strength($password)
 
-Returns the strength of the given password.
+Returns the strength of the given password and tt is case insensitive.
 
     +----------------+------------+
     | Score (s)      | Strength   |
@@ -234,8 +244,7 @@ sub _strength {
 sub _exists {
     my ($self, $word) = @_;
 
-    return 1 if exists($self->{'word_hash'}->{lc($word)});
-    return 0;
+    return exists($self->{'word_hash'}->{lc($word)});
 }
 
 sub _checkDictionary {
@@ -312,7 +321,10 @@ sub _checkVariation {
     $regexp =~ s/\|$//g;
 
     foreach (@{$self->{'word_list'}}) {
-        ($self->{result}->{'check_variation'} = 0 && return) if /$regexp/i;
+        if (/$regexp/i) {
+            $self->{result}->{'check_variation'} = 0;
+            return;
+        }
     }
 
     $self->{result}->{'check_variation'} = 1;
