@@ -1,5 +1,9 @@
 Revision history for Data-Password-Filter
 
+0.14  2016-01-29T09:40:00+01:00
+      - Added key 'provides' to the Makefile.PL script.
+      - Added test scripts t/meta-json.t and t/meta-yml.t.
+
 0.13  2015-09-08T12:10:00+01:00
       - Patched bug RT: #106940 (thanks to HKCLARK).
 

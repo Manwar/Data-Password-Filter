@@ -1,6 +1,7 @@
 package Data::Password::Filter::Params;
 
-$Data::Password::Filter::VERSION = '0.13';
+$Data::Password::Filter::Params::VERSION   = '0.14';
+$Data::Password::Filter::Params::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
 
@@ -8,7 +9,7 @@ Data::Password::Filter::Params - Placeholder for parameters for Data::Password::
 
 =head1 VERSION
 
-Version 0.13
+Version 0.14
 
 =cut
 
@@ -51,7 +52,7 @@ Mohammad S Anwar, C<< <mohammad.anwar at yahoo.com> >>
 
 =head1 REPOSITORY
 
-L<https://github.com/Manwar/Data-Password-Filter>
+L<https://github.com/manwar/Data-Password-Filter>
 
 =head1 BUGS
 

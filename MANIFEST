@@ -14,5 +14,7 @@ t/03-score.t
 t/04-check_variation.t
 t/manifest.t
 t/pod.t
+t/meta-json.t
+t/meta-yml.t
 t/DictionaryWithNoWord.txt
 t/changes.t
