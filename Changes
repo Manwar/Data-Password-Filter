@@ -1,4 +1,8 @@
-Revision history for Data-Password-Filter
+Revision history for Data::Password::Filter
+
+0.15  2016-08-29T22:55:00+01:00
+      - Updated Copyright year information.
+      - Tidied up unit test script t/00-load.t.
 
 0.14  2016-01-29T09:40:00+01:00
       - Added key 'provides' to the Makefile.PL script.
