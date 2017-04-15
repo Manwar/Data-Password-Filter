@@ -1,5 +1,8 @@
 Revision history for Data::Password::Filter
 
+0.16  2017-04-15T13:00:00+01:00
+      - Improved type handling.
+
 0.15  2016-08-29T22:55:00+01:00
       - Updated Copyright year information.
       - Tidied up unit test script t/00-load.t.

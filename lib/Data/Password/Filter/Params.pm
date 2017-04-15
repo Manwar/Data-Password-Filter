@@ -1,6 +1,6 @@
 package Data::Password::Filter::Params;
 
-$Data::Password::Filter::Params::VERSION   = '0.15';
+$Data::Password::Filter::Params::VERSION   = '0.16';
 $Data::Password::Filter::Params::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Data::Password::Filter::Params - Placeholder for parameters for Data::Password::
 
 =head1 VERSION
 
-Version 0.15
+Version 0.16
 
 =cut
 
@@ -17,30 +17,13 @@ use 5.006;
 use strict; use warnings;
 use Data::Dumper;
 
-use vars qw(@ISA @EXPORT @EXPORT_OK);
+use Type::Library -base, -declare => qw(ZeroOrOne PositiveNum FilePath);
+use Types::Standard qw(Str);
+use Type::Utils;
 
-require Exporter;
-@ISA = qw(Exporter);
-@EXPORT_OK = qw($FilePath $ZeroOrOne $Num $STATUS);
-
-our $STATUS = {
-    'check_dictionary'        => 'Check Dictionary       :',
-    'check_length'            => 'Check Length           :',
-    'check_digit'             => 'Check Digit            :',
-    'check_lowercase_letter'  => 'Check Lowercase Letter :',
-    'check_uppercase_letter'  => 'Check Uppercase Letter :',
-    'check_special_character' => 'Check Special Character:',
-    'check_variation'         => 'Check Variation        :',
-};
-
-our $ZeroOrOne = sub  { die "ERROR: Invalid data found [$_[0]]" unless check_zero_or_one($_[0]); };
-sub check_zero_or_one { return (defined($_[0]) && ($_[0] =~ /^\d$/) && ($_[0] == 0 || $_[0] == 1)); }
-
-our $Num = sub { return check_num($_[0]); };
-sub check_num  { die "ERROR: Invalid NUM data type [$_[0]]" unless (defined $_[0] && $_[0] =~ /^\d+$/); }
-
-our $FilePath = sub { die "ERROR: Invalid file path [$_[0]]" unless check_file_path($_[0]); };
-sub check_file_path { return (-f $_[0]) };
+declare 'ZeroOrOne',   as Str, where { /^[0|1]$/ };
+declare 'PositiveNum', as Str, where { /^\d+$/   };
+declare 'FilePath',    as Str, where { -f $_[0]  };
 
 =head1 DESCRIPTION
 

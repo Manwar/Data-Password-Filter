@@ -1,6 +1,6 @@
 package Data::Password::Filter;
 
-$Data::Password::Filter::VERSION   = '0.15';
+$Data::Password::Filter::VERSION   = '0.16';
 $Data::Password::Filter::AUTHORITY = 'cpan:MANWAR';
 
 =head1 NAME
@@ -9,7 +9,7 @@ Data::Password::Filter - Interface to the password filter.
 
 =head1 VERSION
 
-Version 0.15
+Version 0.16
 
 =cut
 
@@ -17,7 +17,7 @@ use 5.006;
 use autodie;
 use Data::Dumper;
 use File::Share ':all';
-use Data::Password::Filter::Params qw($Num $ZeroOrOne $FilePath $STATUS);
+use Data::Password::Filter::Params qw(ZeroOrOne FilePath PositiveNum);
 
 use Moo;
 use namespace::clean;
@@ -34,14 +34,24 @@ L<http://perl.sys-con.com/node/1911661>
 
 has 'word_list'             => (is => 'ro');
 has 'word_hash'             => (is => 'ro');
-has 'length'                => (is => 'ro', isa => $Num,       default => sub { return 8; });
-has 'min_lowercase_letter'  => (is => 'ro', isa => $Num,       default => sub { return 1; });
-has 'min_uppercase_letter'  => (is => 'ro', isa => $Num,       default => sub { return 1; });
-has 'min_special_character' => (is => 'ro', isa => $Num,       default => sub { return 1; });
-has 'min_digit'             => (is => 'ro', isa => $Num,       default => sub { return 1; });
-has 'check_variation'       => (is => 'ro', isa => $ZeroOrOne, default => sub { return 1; });
-has 'check_dictionary'      => (is => 'ro', isa => $ZeroOrOne, default => sub { return 1; });
-has 'user_dictionary'       => (is => 'ro', isa => $FilePath );
+has 'length'                => (is => 'ro', isa => PositiveNum, default => sub { return 8; });
+has 'min_lowercase_letter'  => (is => 'ro', isa => PositiveNum, default => sub { return 1; });
+has 'min_uppercase_letter'  => (is => 'ro', isa => PositiveNum, default => sub { return 1; });
+has 'min_special_character' => (is => 'ro', isa => PositiveNum, default => sub { return 1; });
+has 'min_digit'             => (is => 'ro', isa => PositiveNum, default => sub { return 1; });
+has 'check_variation'       => (is => 'ro', isa => ZeroOrOne,   default => sub { return 1; });
+has 'check_dictionary'      => (is => 'ro', isa => ZeroOrOne,   default => sub { return 1; });
+has 'user_dictionary'       => (is => 'ro', isa => FilePath );
+
+our $STATUS = {
+    'check_dictionary'        => 'Check Dictionary       :',
+    'check_length'            => 'Check Length           :',
+    'check_digit'             => 'Check Digit            :',
+    'check_lowercase_letter'  => 'Check Lowercase Letter :',
+    'check_uppercase_letter'  => 'Check Uppercase Letter :',
+    'check_special_character' => 'Check Special Character:',
+    'check_variation'         => 'Check Variation        :',
+};
 
 sub BUILD {
     my ($self) = @_;
